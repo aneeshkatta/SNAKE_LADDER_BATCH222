@@ -10,7 +10,9 @@ namespace SNAKE_LADDER_BATCH222
     {
         static void Main()
         {
+            int START_POSITION = 0;
             Console.WriteLine("Welcome to snake and Ladder");
+            Console.WriteLine("Player will Start at Zero Position,Player position :{0}", START_POSITION);
 
         }
     }
