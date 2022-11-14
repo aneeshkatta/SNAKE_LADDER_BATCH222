@@ -42,6 +42,10 @@ namespace SNAKE_LADDER_BATCH222
                             {
                                 CURRENTPOSITION -= dieRoll;
                             }
+                            else if (CURRENTPOSITION < 0)
+                            {
+                                CURRENTPOSITION = START_POSITION;
+                            }
                         }
                         break;
                     default:
