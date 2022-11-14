@@ -13,7 +13,7 @@ namespace SNAKE_LADDER_BATCH222
             int START_POSITION = 0;
              int WIN_POSITION = 100;
             int CURRENTPOSITION = 0;
-            const int forward = 1;
+            const int ladder = 1;
             const int snakebite = 2;
             Console.WriteLine("Welcome to snake and Ladder");
             Console.WriteLine("Player will Start at Zero Position,Player position :{0}", START_POSITION);
@@ -25,12 +25,13 @@ namespace SNAKE_LADDER_BATCH222
                 int dieRoll = random.Next(1, 7);
                 switch (checkOptions)
                 {
-                    case forward:
+                    case ladder:
                         {
                             Console.WriteLine("Player will move forward");
-                            if (CURRENTPOSITION < 100)
+                            CURRENTPOSITION += dieRoll;
+                            if (CURRENTPOSITION > 100)
                             {
-                                CURRENTPOSITION += dieRoll;
+                                CURRENTPOSITION -= dieRoll;
                             }
 
                         }
