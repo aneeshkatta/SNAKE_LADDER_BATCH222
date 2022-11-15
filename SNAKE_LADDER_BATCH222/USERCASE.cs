@@ -10,7 +10,7 @@ namespace SNAKE_LADDER_BATCH222
     {
         static void Main()
         {
-            Console.WriteLine("This is a two Player game.");
+            Console.WriteLine("This is a two Player snake ladder game.");
             int player1Position = 0;
             int player2Position = 0;
             Console.WriteLine("Player 1 position is: " + player1Position);
@@ -19,7 +19,7 @@ namespace SNAKE_LADDER_BATCH222
             while (player1Position != 100 && player2Position != 100)
             {
                 //player1
-                Console.Write("Player 1 roll. ");
+                Console.Write("Player 1 rolls. ");
                 player1Position += playerRoll(player1Position);
                 if (player1Position < 0)
                 {
@@ -60,34 +60,39 @@ namespace SNAKE_LADDER_BATCH222
 
             while (playTimes != 0)
             {
+                gotladder:
                 int roll = random.Next(1, 7);
                 int option = random.Next(0, 3);
                 switch (option)
                 {
                     case Noplay:
                         //no play
-                        Console.Write("Player choose not to play. ");
+                        Console.WriteLine("Player choose not to play. ");
                         playTimes--;
                         break;
                     //ladder
                     case ladder:
                         if (playerPosition + position > 100)
                         {
-                            Console.Write("Player choose not to play. ");
+                            Console.WriteLine("Player choose not to play. ");
                             playTimes--;
                         }
                         else
                         {
                             position += roll;
-                            Console.Write("Player choose the ladder with {0} roll. ", roll);
+                            Console.WriteLine("Player got the ladder with {0} roll. ", roll);
                             playTimes = 1;
+                            if (position < 100)
+                            {
+                                goto gotladder;
+                            }
                         }
 
                         break;
                     //snake
                     case snake:
                         position -= roll;
-                        Console.Write("Player choose the snake with {0} roll. ", roll);
+                        Console.WriteLine("Player got the snake with {0} roll. ", roll);
                         playTimes--;
 
                         break;
